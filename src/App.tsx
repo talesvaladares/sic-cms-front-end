@@ -1,25 +1,23 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/global';
 import { defaultTheme} from './styles/themes/default';
-import { MainContainer  } from './styles/Components/MainContainer'
-import { Header  } from './styles/Components/header';
-import { MenuModalProvider } from './context/menuModalContext'
-
-import { Home } from './pages/Home'
+import { MenuModalProvider } from './context/menuModalContext';
+import { ResourceModalProvider } from './context/recourseModalContext';
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './router';
 
 export function App() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <MenuModalProvider>
-        
-        <Header/>
-          <MainContainer>
-            <Home/>
-          </MainContainer>
-        <GlobalStyle/>
-        
-      </MenuModalProvider>
+      <BrowserRouter>
+        <MenuModalProvider>
+          <ResourceModalProvider>
+            <Router/>
+          </ResourceModalProvider>
+          <GlobalStyle/>
+        </MenuModalProvider>
+      </BrowserRouter>
     </ThemeProvider>   
 
   )

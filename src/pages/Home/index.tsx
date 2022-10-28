@@ -53,11 +53,6 @@ export function Home() {
       setAction({action: 'update'})
     }
 
-    if (action === 'create') {
-      setMenuCurrent({} as Menu);
-      setAction({action : 'create'})
-    }
-
     openModal();
   }
 
